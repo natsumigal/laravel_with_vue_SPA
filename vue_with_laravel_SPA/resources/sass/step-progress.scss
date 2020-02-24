@@ -1,0 +1,116 @@
+.step-progress__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    position: relative
+}
+
+.step-progress__wrapper-before {
+    background-color: #cccccc;
+    transform: translateY(-50%) perspective(1000px)
+}
+
+.step-progress__wrapper-after,
+.step-progress__wrapper-before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 2px;
+    width: 100%
+}
+
+.step-progress__wrapper-after {
+    background-color: #25c1e9;
+    transform: scaleX(0) translateY(-50%) perspective(1000px);
+    transform-origin: left center;
+    transition: transform .5s ease
+}
+
+.step-progress__bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-progress__step {
+    z-index: 2;
+    position: relative
+}
+
+.step-progress__step span {
+    color: #ffffff;
+    transition: .3s ease;
+    display: block;
+    font-size: 1rem;
+    transform: translateZ(0) scale(1) perspective(1000px);
+    font-weight: 900;
+    text-align: center;
+    opacity: 1
+}
+
+.step-progress__step--active .step-progress__step-icon {
+    opacity: 1
+}
+
+.step-progress__step--valid .step-progress__step-icon {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1) perspective(1000px)
+}
+
+.step-progress__step--valid span {
+    color: #25c1e9;
+    opacity: 0;
+    transform: translateZ(0) scale(2) perspective(1000px)
+}
+
+.step-progress__step--valid .step-progress__step-label {
+    color: #000000
+}
+
+.step-progress__step:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) perspective(1000px);
+    width: 2rem;
+    height: 2rem;
+    background-color: #cccccc;
+    border-radius: 50%;
+    border: 5px solid #cccccc;
+    transition: .3s ease
+}
+
+.step-progress__step--active:after {
+    border: 5px solid #cccccc
+}
+
+.step-progress__step--valid:after {
+    background-color: #25c1e9;
+    border: 5px solid #25c1e9
+}
+
+.step-progress__step-label {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%) perspective(1000px);
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 100;
+    color: #cccccc;
+    transition: .3s ease
+}
+
+.step-progress__step-icon {
+    font-size: 1rem;
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transition: transform .3s ease;
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0) perspective(1000px)
+}
